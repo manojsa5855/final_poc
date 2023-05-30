@@ -12,7 +12,7 @@ pipeline {
     stages{
         stage('Fetch code') {
           steps{
-              git branch: 'vp-rem', credentialsId: 'gitcred', url: 'https://github.com/manojsa5855/vprofile-project.git'
+              git branch: 'main', credentialsId: 'gitcred', url: 'https://github.com/manojsa5855/final_poc.git'
           }  
         }
 
