@@ -78,7 +78,7 @@ pipeline {
 	}
 	stage('deploying helm chart'){
 		steps{
-			sh 'helm create finalpoc'
+			sh 'kubectl apply -f podapp.yml'
 		}
 	}
 /*
