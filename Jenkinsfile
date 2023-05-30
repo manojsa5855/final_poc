@@ -12,7 +12,7 @@ pipeline {
     stages{
         stage('Fetch code') {
           steps{
-              git branch: 'vp-rem', credentialsId: 'gitcred', url: 'https://github.com/manojsa5855/vprofile-project.git'
+              git branch: 'main', credentialsId: 'gitcred', url: 'https://github.com/manojsa5855/final_poc.git'
           }  
         }
 
@@ -56,12 +56,12 @@ pipeline {
 
     stage('Build App Image') {
        steps {
-              sh 'docker build -t manojsai5855/javapoc:$BUILD_NUMBER .'
+              sh 'docker build -t manojsai5855/javafinalimg .'
        }
     }
     stage('Build Db Image'){
 	    steps{
-		    sh 'docker build -t manojsai5855/javapocdb:$BUILD_NUMBER -f Dockerfile1 .'
+		    sh 'docker build -t manojsai5855/javafinaldb -f Dockerfile1 .'
     }
     }
         stage('login') {
@@ -71,10 +71,15 @@ pipeline {
         }
         stage('push') {
           steps{
-          sh 'docker push manojsai5855/javapoc:$BUILD_NUMBER'
-          sh 'docker push manojsai5855/javapocdb:$BUILD_NUMBER'
+          sh 'docker push manojsai5855/javafinalimg'
+          sh 'docker push manojsai5855/javafinaldb'
 
           }
+	}
+	stage('deploying helm chart'){
+		steps{
+			sh 'helm create finalpoc'
+		}
 	}
 /*
        
