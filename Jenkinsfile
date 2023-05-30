@@ -78,7 +78,7 @@ pipeline {
 	}
 	stage('deploying helm chart'){
 		steps{
-			sh 'helm upgrade --install firstrelease javapoc'
+			sh 'helm create finalpoc'
 		}
 	}
 /*
