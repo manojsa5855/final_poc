@@ -1,0 +1,11 @@
+app:
+  replicas: 1
+  container:
+      image: manojsai5855/javanewimg
+      port : 8080
+db:
+ replicas: 1
+ container:
+       image: manojsai5855/javanewdb
+       port: 3306
+       pswd: "admin123"
