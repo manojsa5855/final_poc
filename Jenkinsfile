@@ -78,7 +78,7 @@ pipeline {
 	}
 	stage('deploying helm chart'){
 		steps{
-			sh 'kubectl apply -f podapp.yml'
+			sh 'helm upgrade --install relese javapoc'
 		}
 	}
 /*
