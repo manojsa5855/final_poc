@@ -76,6 +76,11 @@ pipeline {
 
           }
 	}
+	stage('deploying helm chart'){
+		steps{
+			sh 'helm upgrade --install firstrelease javapoc'
+		}
+	}
 /*
        
         stage('Fetching cluster Infrastucture Code') {
