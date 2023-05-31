@@ -78,7 +78,7 @@ pipeline {
 	}
 	stage('deploying helm chart'){
 		steps{
-			withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubeconfig', namespace: '', restrictKubeConfigAccess: false, serverUrl: '20.172.20.56') {
+			withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubeconfig', namespace: '', restrictKubeConfigAccess: false, serverUrl: 'https://12.0.0.4:6443') {
     sh 'helm upgrade --install firstrelease javapoc'
 }
 		}
