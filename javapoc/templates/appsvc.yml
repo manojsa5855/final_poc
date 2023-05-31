@@ -7,7 +7,7 @@ spec:
   - port: 80
     targetPort: vproapp-port
     protocol: TCP
+    nodePort: 31313
   selector:
     app: vproapp
   type: NodePort
-  nodeport: 31313
